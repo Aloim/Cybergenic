@@ -1,16 +1,35 @@
 # Cybergenic
-Grow applications instead of coding them. This framework uses biological evolution principles to create self-healing, self-optimizing software that discovers its own architecture through runtime signals. Reduces maintenance to zero and AI costs by 70-80%.
+Grow applications instead of coding them. This framework uses biological evolution principles to create self-healing, self-optimizing software that discovers its own architecture through runtime signals.
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 README.md
-Cybergenic Framework
+markdown# Cybergenic Framework
 
 ## Overview
 
 The **Cybergenic Framework** is a revolutionary software development paradigm where applications literally "grow" from a seed specification through controlled evolutionary processes, mimicking biological development from embryo to mature organism with **self-healing, self-optimizing capabilities**.
 
 **Core Principle:** "Don't write code. Grow self-maintaining organisms through signal-driven evolution."
+
+---
+
+##  Getting Started
+
+**New to Cybergenic?** Start here:
+
+1. **Read [Tutorial.md](Tutorial.md)** - Complete beginner's guide with a PingPong game example
+2. **Understand the concepts** - Read this README for the "why" and "how"
+3. **Study the workflow** - Check [WORKFLOW.md](WORKFLOW.md) to see what happens during evolution
+4. **Run your first organism** - Follow the Quick Start section below
+
+**Key Requirements:**
+- Python 3.8+
+- Git (recommended)
+- psutil package (`pip install psutil`)
+
+---
 
 ## What Makes This Revolutionary
 
@@ -116,15 +135,61 @@ class PhysicsIntegrator:  # The protein
 
 **Total: 11 Agents**
 
+**How Routing Works:**
+The Coordinator analyzes each RNA work order's capability type and routes it to the appropriate specialized synthesizer:
+- Transform proteins → `synthesizer_transform.md`
+- Validate proteins → `synthesizer_validate.md`
+- ManageState proteins → `synthesizer_manage_state.md`
+- Coordinate proteins → `synthesizer_coordinate.md`
+- Communicate proteins → `synthesizer_communicate.md`
+- Monitor proteins → `synthesizer_monitor.md`
+- Decide proteins → `synthesizer_decide.md`
+- Adapt proteins → `synthesizer_adapt.md`
+
+This ensures each protein is synthesized by an agent with deep expertise in that capability type.
+
+**Why Specialized Synthesizers?**
+- **Better Code Quality**: Each synthesizer knows the patterns and anti-patterns for its capability
+- **Fewer Errors**: Specialized knowledge reduces misfolding and validation failures
+- **Consistent Patterns**: All Transform proteins follow Transform best practices
+- **Faster Synthesis**: Specialized agents work more efficiently within their domain
+- **Lower Apoptosis Rate**: Better initial quality means fewer proteins die and need replacement
+
 **Specialized Synthesizers by Capability:**
-- Transform - Data transformation proteins
-- Validate - Data validation proteins
-- ManageState - State management proteins
-- Coordinate - Multi-protein coordination proteins
-- Communicate - External I/O proteins
-- Monitor - System observation proteins
-- Decide - Policy and decision-making proteins
-- Adapt - Interface adaptation proteins
+
+Each synthesizer is optimized for a specific protein type, with specialized knowledge of patterns, best practices, and common pitfalls:
+
+1. **Transform** (`synthesizer_transform.md`) - Data transformation proteins
+   - Pure functions, immutability, composability
+   - Format conversion, data mapping, filtering operations
+
+2. **Validate** (`synthesizer_validate.md`) - Data validation proteins
+   - Schema validation, business rules, constraint checking
+   - Clear error messages, composable validation rules
+
+3. **ManageState** (`synthesizer_manage_state.md`) - State management proteins
+   - Thread safety, transactional support, audit trails
+   - Game state, sessions, cache management, configuration
+
+4. **Coordinate** (`synthesizer_coordinate.md`) - Multi-protein coordination proteins
+   - Workflow orchestration, error handling, parallel execution
+   - Request pipelines, multi-step processes, saga patterns
+
+5. **Communicate** (`synthesizer_communicate.md`) - External I/O proteins
+   - Retry logic, timeouts, circuit breakers, rate limiting
+   - API clients, file I/O, database connections, message queues
+
+6. **Monitor** (`synthesizer_monitor.md`) - System observation proteins
+   - Low overhead, aggregation, threshold detection, trend analysis
+   - Performance monitoring, health checks, resource tracking
+
+7. **Decide** (`synthesizer_decide.md`) - Policy and decision-making proteins
+   - Explainable decisions, deterministic logic, audit logging
+   - Admission control, load balancing, feature flags, authorization
+
+8. **Adapt** (`synthesizer_adapt.md`) - Interface adaptation proteins
+   - Version handling, backward compatibility, semantic translation
+   - Legacy adapters, protocol adapters, format converters
 
 **Self-Maintenance Systems** (Automated):
 - Immune System
@@ -248,9 +313,14 @@ Proteins can have these capabilities:
 ## Quick Start
 
 1. **Setup**: Run `python setup_cybergenic.py` or `/cybergensetup`
-   - Creates all directories, tracking files, and agent definitions
+   - Creates all directories and tracking files
+   - Generates 11 agent definitions:
+     - 1 Architect (Sonnet 4.5)
+     - 1 Coordinator (Sonnet 4.5)
+     - 8 Specialized Synthesizers (Haiku 4)
+     - 1 Chaperone (Haiku 4)
    - Initializes git repository
-   - Creates MCP configuration
+   - Creates MCP configuration (optional)
    - Generates `seed/requirements.md` template
 
 2. **Add Seed**: Edit `seed/requirements.md` with your project description
@@ -261,7 +331,7 @@ Proteins can have these capabilities:
 
 5. **Monitor**: Use `/cybergenstatus` and `/cybergenmaintenance` to observe
 
-See [SETUP.md](SETUP.md) for detailed instructions.
+See [Tutorial.md](Tutorial.md) for a complete step-by-step beginner's guide.
 
 ## Commands
 
@@ -276,6 +346,34 @@ See [SETUP.md](SETUP.md) for detailed instructions.
 
 See [COMMANDS.md](COMMANDS.md) for complete command reference.
 
+## Documentation
+
+This framework includes comprehensive documentation for different user levels:
+
+- **[Tutorial.md](Tutorial.md)** - Complete beginner's guide with step-by-step instructions
+  - Prerequisites and installation
+  - Understanding the basics
+  - PingPong game example (full walkthrough)
+  - Monitoring and troubleshooting
+  - Tips for success
+
+- **[README.md](README.md)** (this file) - Overview and concepts
+  - What makes Cybergenic revolutionary
+  - Key concepts and architecture
+  - Agent hierarchy and capabilities
+  - Quick start guide
+
+- **[WORKFLOW.md](WORKFLOW.md)** - Detailed generation lifecycle
+  - What happens during Conception (Generation 0)
+  - What happens during Evolution (Generation 1+)
+  - Self-maintenance system workflows
+  - Signal discovery process
+
+- **[COMMANDS.md](COMMANDS.md)** - Complete command reference
+  - All available commands
+  - Command syntax and parameters
+  - Usage examples
+
 ## MCP Tools (Optional)
 
 Model Context Protocol servers provide enhanced capabilities:
@@ -285,26 +383,13 @@ Model Context Protocol servers provide enhanced capabilities:
 
 MCP is optional but recommended for complex projects.
 
-## Version
 
-Version: 6.0.0 - Self-Maintaining Organisms
 Last Updated: October 2025
 Status: Production Ready
 
 ---
 
 **"Don't write code. Grow self-maintaining organisms through signal-driven evolution."**
-
-
-## License
-This project is licensed under AGPL v3 for open source use.
-Commercial licenses available - contact sesassa68@gmail.com for pricing.
-
-This software is available under two licenses:
-1. AGPL v3 (see LICENSE-AGPL)
-2. Commercial License (contact for terms)
-
-
 
 
 ## License
