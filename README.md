@@ -43,7 +43,7 @@ Agentic workflows and autonomous code generation are **not yet as reliable as th
    ├── output/
    └── [your other project files]
 ```
-4. Run `/cybergensetup` in Claude Code to initialize
+4. Run `/cybergensetup` in Claude Code to initialize(restart Claudecode if the command doesnt appear)
 
 #### 2. Local LLM Version (Experimental)
 
