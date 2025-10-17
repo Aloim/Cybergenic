@@ -49,13 +49,8 @@ Agentic workflows and autonomous code generation are **not yet as reliable as th
 
 **Status**: Work In Progress - DO NOT USE YET
 
-This version is designed for better control using local LLMs (Ollama, LM Studio, etc.) but is currently incomplete and non-functional.
+This version is designed for better control using local LLMs (Ollama, LM Studio, etc.) together with claudecode but is currently incomplete and non-functional.
 
-**Planned features**:
-- Local model control and fine-tuning
-- No subscription requirements
-- Full privacy and offline operation
-- Custom model selection
 
 **Current status**: Under active development. Not ready for testing.
 
@@ -64,8 +59,7 @@ This version is designed for better control using local LLMs (Ollama, LM Studio,
 ### Which Version Should I Use?
 
 - **Want to try it now?** → Use the **ClaudeCode version**
-- **Want local control?** → Wait for the Local LLM version (coming soon)
-- **Production use?** → Neither. Wait for v7.0.0 stable release.
+
 
 ---
 
@@ -85,9 +79,9 @@ The **Cybergenic Framework** is a revolutionary software development paradigm wh
 
 **New to Cybergenic?** Start here:
 
-1. **Read [Tutorial.md](Tutorial.md)** - Complete beginner's guide with a PingPong game example
+1. **Read [Tutorial.md]** - Complete beginner's guide with a PingPong game example
 2. **Understand the concepts** - Read this README for the "why" and "how"
-3. **Study the workflow** - Check [WORKFLOW.md](WORKFLOW.md) to see what happens during evolution
+3. **Study the workflow** - Check [WORKFLOW.md] to see what happens during evolution
 4. **Run your first organism** - Follow the Quick Start section below
 
 **Key Requirements:**
@@ -397,7 +391,7 @@ Proteins can have these capabilities:
 
 5. **Monitor**: Use `/cybergenstatus` and `/cybergenmaintenance` to observe
 
-See [Tutorial.md](Tutorial.md) for a complete step-by-step beginner's guide.
+See [Tutorial.md] for a complete step-by-step beginner's guide.
 
 ## Commands
 
@@ -410,32 +404,32 @@ See [Tutorial.md](Tutorial.md) for a complete step-by-step beginner's guide.
 - `/cybergenproteins` - List all proteins
 - `/cybergensignal` - View signal discovery status
 
-See [COMMANDS.md](COMMANDS.md) for complete command reference.
+See [COMMANDS.md] for complete command reference.
 
 ## Documentation
 
 This framework includes comprehensive documentation for different user levels:
 
-- **[Tutorial.md](Tutorial.md)** - Complete beginner's guide with step-by-step instructions
+- **[Tutorial.md]** - Complete beginner's guide with step-by-step instructions
   - Prerequisites and installation
   - Understanding the basics
   - PingPong game example (full walkthrough)
   - Monitoring and troubleshooting
   - Tips for success
 
-- **[README.md](README.md)** (this file) - Overview and concepts
+- **[README.md]** (this file) - Overview and concepts
   - What makes Cybergenic revolutionary
   - Key concepts and architecture
   - Agent hierarchy and capabilities
   - Quick start guide
 
-- **[WORKFLOW.md](WORKFLOW.md)** - Detailed generation lifecycle
+- **[WORKFLOW.md]** - Detailed generation lifecycle
   - What happens during Conception (Generation 0)
   - What happens during Evolution (Generation 1+)
   - Self-maintenance system workflows
   - Signal discovery process
 
-- **[COMMANDS.md](COMMANDS.md)** - Complete command reference
+- **[COMMANDS.md]** - Complete command reference
   - All available commands
   - Command syntax and parameters
   - Usage examples
