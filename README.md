@@ -4,8 +4,7 @@ Grow applications instead of coding them. This framework uses biological evoluti
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-README.md
-markdown# Cybergenic Framework
+Cybergenic Framework
 
 ## Overview
 
