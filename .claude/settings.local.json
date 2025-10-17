@@ -3,7 +3,11 @@
     "allow": [
       "Bash(git init)",
       "Bash(git remote add origin https://github.com/Aloim/Cybergenic.git)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd two orchestration versions: CybergenCC+Local and CybergenCConly\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push -u origin main)",
+      "Bash(git pull origin main --rebase)",
+      "Bash(git commit -m \"Update settings\")"
     ],
     "deny": [],
     "ask": []
