@@ -1057,90 +1057,307 @@ class ProtocolAdapter:
     print(f"   - 1 Chaperone (Haiku 4)")
 
 def create_command_definitions():
-    """Create command definition file"""
+    """Create individual command definition files"""
 
     print("\n[SETUP] Creating command definitions...")
 
-    commands_content = """---
-name: Cybergenic Commands
----
+    # Dictionary of all commands with their content
+    commands = {
+        'cybergensetup.md': """# /cybergensetup - Initialize Cybergenic Framework
 
-## /cybergensetup
-Initialize the complete Cybergenic Framework structure including:
-- Directory structure
-- Signal discovery system
-- Protein registry
-- Self-maintenance systems
-- MCP configuration (optional)
+**Purpose:** Initialize the complete Cybergenic Framework structure
 
-## /cybergenrun
-Execute the growth process following the Central Dogma + Signal Discovery:
-- If first run (counter=0): Run Conception with Architect (DNA synthesis)
-- If subsequent run: Evolve next generation (Signal Discovery -> DNA->RNA->Protein)
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Framework overview and core concepts
+- [SETUP.md](../../SETUP.md) - Detailed setup steps and prerequisites
+- [WORKFLOW.md](../../WORKFLOW.md) - Generation lifecycle and self-maintenance systems
+- [COMMANDS.md](../../COMMANDS.md) - Command reference
 
-## /cybergenstatus
-Show current generation, run count, DNA status, active proteins, and signal statistics
+**What it does:**
+1. Creates `.cybergenic/` directory structure (dna, generations, context, signals, proteins, immune, metabolism)
+2. Creates `.claude/` directory structure (agents, commands)
+3. Creates `seed/` directory structure (documents, images, requirements)
+4. Creates `framework/` directory structure (templates, patterns, rules)
+5. Creates `output/` directory structure (proteins, modules, tests, docs)
+6. Initializes tracking files (counters, JSON state files)
+7. Creates self-maintenance system Python files
+8. Creates agent definitions (Architect, Coordinator, Synthesizers, Chaperone)
+9. Initializes Git repository
+10. Creates MCP configuration (optional)
 
-## /cybergenmaintenance
-Show detailed self-maintenance systems status:
-- Homeostasis metrics and deviations
-- Metabolic costs per protein
-- Apoptosis events and reasons
-- Immune system known self/threats
+Run the Python setup script to execute this command:
+```bash
+python setup_cybergenic.py
+```
+""",
 
-## /cybergenevolve N
-Evolve N generations (default: 1)
-Each generation follows: Signal Discovery -> DNA->RNA->Protein->Validation->Integration->Tracking
+        'cybergenrun.md': """# /cybergenrun - Execute Growth Process
 
-## /cybergenrollback N
-Rollback to generation N using git + Claude checkpoints
+**Purpose:** Execute the growth process (conception or evolution)
 
-## /cybergenvalidate
-Run chaperone validation suite on all proteins
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Central Dogma and core concepts
+- [WORKFLOW.md](../../WORKFLOW.md) - Detailed generation lifecycle
+- `.cybergenic/dna/DNA.md` - Organism's genetic code (for evolution)
+- `seed/` directory - Project requirements (for conception)
 
-## /cybergenhelp
-Show this help and pre-run checklist
+**Behavior:**
+- **First run (generation=0):** Runs Conception with Architect
+  - Reads all files in seed/ directory
+  - Creates DNA.md with Sacred Rules
+  - Configures self-maintenance systems
+  - Sets up signal standards
 
-## /cybergendna
-Display current DNA.md with Sacred Rules and Signal Standards
+- **Subsequent runs:** Evolves next generation
+  - Checks self-maintenance systems
+  - Discovers orphan signals
+  - Transcribes DNA → RNA
+  - Synthesizes proteins via specialized synthesizers
+  - Validates and integrates
 
-## /cybergenDNA
-Re-invoke Architect to update DNA.md based on:
-- Current seed materials in /seed/
-- Actual evolved codebase
-- Synthesized proteins
-- Orphan signal patterns
-Updates DNA while respecting 1000 line limit
+**Implementation:** Invoke the Coordinator agent with appropriate context based on generation counter.
+""",
 
-## /cybergenproteins
-List all synthesized proteins with their:
-- Conformational states
-- Capabilities
-- Signals they handle
-- Signals they emit
+        'cybergenstatus.md': """# /cybergenstatus - Show Organism Status
+
+**Purpose:** Show current organism status
+
+**Required Documentation Reading:**
+- [WORKFLOW.md](../../WORKFLOW.md) - Self-maintenance system states
+- `.cybergenic/` state files - All tracking files
+
+**What it shows:**
+- Run count and current generation
+- DNA presence
+- Active protein count
+- Signal discovery statistics
+- Self-maintenance system status (brief)
+
+**Implementation:** Read and display:
+- `.cybergenic/generation_counter.txt`
+- `.cybergenic/run_counter.txt`
+- `.cybergenic/protein_registry.json`
+- `.cybergenic/signal_discovery.json`
+- `.cybergenic/homeostasis_state.json`
+""",
+
+        'cybergenmaintenance.md': """# /cybergenmaintenance - Show Self-Maintenance Status
+
+**Purpose:** Show detailed self-maintenance systems status
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Self-maintenance systems overview
+- [WORKFLOW.md](../../WORKFLOW.md) - Detailed self-maintenance workflows
+- `.cybergenic/homeostasis_state.json` - Homeostasis metrics
+- `.cybergenic/metabolic_costs.json` - Protein cost data
+- `.cybergenic/apoptosis_log.json` - Apoptosis event history
+- `.cybergenic/immune_memory.json` - Threat database
+
+**What it shows:**
+- **Homeostasis:** All metrics with deviations from set points
+- **Metabolic:** Top expensive proteins with costs
+- **Apoptosis:** Event history and reasons
+- **Immune:** Known self, known threats, patterns
+
+**Implementation:** Read and format all self-maintenance state files.
+""",
+
+        'cybergenevolve.md': """# /cybergenevolve - Evolve N Generations
+
+**Purpose:** Evolve N generations in sequence
+
+**Required Documentation Reading:**
+- [WORKFLOW.md](../../WORKFLOW.md) - Complete generation lifecycle
+- All documentation required by `/cybergenrun`
+
+**Usage:**
+```
+/cybergenevolve 5
+```
+
+**What it does:**
+- Runs the evolution process N times
+- Each generation follows full lifecycle
+- Shows progress for each generation
+
+**Implementation:** Loop N times, calling the evolution logic from `/cybergenrun`.
+""",
+
+        'cybergenrollback.md': """# /cybergenrollback - Rollback to Generation N
+
+**Purpose:** Rollback to generation N
+
+**Required Documentation Reading:**
+- [WORKFLOW.md](../../WORKFLOW.md) - Checkpoint system
+- `.cybergenic/generations/` - Generation snapshots
+- Git history - Generation commits
+
+**Usage:**
+```
+/cybergenrollback 3
+```
+
+**What it does:**
+- Uses Git to checkout generation N commit
+- Restores all state files from that generation
+- Updates generation counter to N
+- Restores all `.cybergenic/` tracking files
+
+**Warning:** This is destructive. Current work will be lost.
+""",
+
+        'cybergendna.md': """# /cybergendna - Display Current DNA
+
+**Purpose:** Display current DNA.md with Sacred Rules
+
+**Required Documentation Reading:**
+- `.cybergenic/dna/DNA.md` - Organism's complete genetic code
+
+**What it does:**
+- Reads and displays the complete DNA.md file
+
+**Implementation:** Read and output `.cybergenic/dna/DNA.md`.
+""",
+
+        'cybergenDNA.md': """# /cybergenDNA - Update DNA.md
+
+**Purpose:** Update DNA.md based on current organism state
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Framework philosophy and Sacred Rules
+- [WORKFLOW.md](../../WORKFLOW.md) - DNA Update Flow workflow
+- `seed/` directory - Original seed materials
+- `output/` directory - Evolved codebase
+- `.cybergenic/protein_registry.json` - Protein catalog
+- `.cybergenic/signal_discovery.json` - Orphan signal patterns
+- `.cybergenic/apoptosis_log.json` - Apoptosis events
+- `.cybergenic/dna/DNA.md` - Current DNA
+
+**When to use:**
+- After significant evolution (10+ generations)
+- When patterns have emerged
+- When DNA has become stale
+- When DNA exceeds 1000 lines
+
+**What it does:**
+- Re-analyzes seed materials
+- Analyzes evolved codebase
+- Reviews protein registry and signal patterns
+- Updates Sacred Rules
+- Compresses if needed (maintain <1000 lines)
+
+**Implementation:** Invoke Architect agent with full organism context.
+""",
+
+        'cybergenproteins.md': """# /cybergenproteins - List All Proteins
+
+**Purpose:** List all synthesized proteins with details
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Proteins as classes concept
+- [WORKFLOW.md](../../WORKFLOW.md) - Protein synthesis workflow
+- `.cybergenic/protein_registry.json` - Complete protein catalog
+
+**What it shows:**
+- Protein name
+- Generation synthesized
 - Status (active/apoptotic)
+- Conformational states (methods)
+- Capabilities
+- Signals handled
+- Signals emitted
 
-## /cybergensignal
-Show detailed signal bus activity:
-- Orphan signals (no handlers)
-- Handled signals
-- Signal frequencies
-- Suggested proteins for orphans
+**Implementation:** Read and format `.cybergenic/protein_registry.json`.
+""",
 
-## /cybergenmcp
-Display MCP (Model Context Protocol) server configuration and status
+        'cybergensignal.md': """# /cybergensignal - Show Signal Discovery Status
 
-## /cybergensignalstats
-Detailed signal discovery statistics:
-- High-priority orphans
+**Purpose:** Show detailed signal discovery status
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Signal-Driven Architecture concept
+- [WORKFLOW.md](../../WORKFLOW.md) - Signal Discovery workflow
+- `.cybergenic/signal_log.json` - All emitted signals
+- `.cybergenic/signal_discovery.json` - Orphan signal tracking
+
+**What it shows:**
+- Total orphan signals
+- Total handled signals
+- High-priority orphans (high frequency)
 - Signal coverage percentage
-- Emission frequencies
-- Historical trends
-"""
+- Recent emission context
 
-    filepath = Path('.claude/commands/cybergen_commands.md')
-    filepath.write_text(commands_content)
-    print(f"   [OK] Created cybergen_commands.md")
+**Implementation:** Read and analyze signal tracking files.
+""",
+
+        'cybergenmcp.md': """# /cybergenmcp - Display MCP Status
+
+**Purpose:** Display MCP server configuration and status
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - MCP Tools section
+- [SETUP.md](../../SETUP.md) - MCP configuration
+- `.claude/mcp.json` - MCP server configuration
+
+**What it shows:**
+- Configured MCP servers
+- Server commands and arguments
+- How agents use MCP tools
+
+**Implementation:** Read and display `.claude/mcp.json`.
+""",
+
+        'cybergenvalidate.md': """# /cybergenvalidate - Validate All Proteins
+
+**Purpose:** Run chaperone validation suite on all proteins
+
+**Required Documentation Reading:**
+- [WORKFLOW.md](../../WORKFLOW.md) - Validation workflow
+- [README.md](../../README.md) - Proteins are Classes concept
+- `.cybergenic/protein_registry.json` - All proteins
+- `output/proteins/` - Actual protein code files
+
+**What it does:**
+- Tests all active proteins
+- Validates conformational states
+- Checks signal emission
+- Verifies self-maintenance hooks
+- Reports any issues
+
+**Implementation:** Invoke Chaperone agent for each protein in registry.
+""",
+
+        'cybergenhelp.md': """# /cybergenhelp - Show Help
+
+**Purpose:** Show help and pre-flight checklist
+
+**Required Documentation Reading:**
+- [README.md](../../README.md) - Complete framework overview
+- [SETUP.md](../../SETUP.md) - Setup instructions
+- [WORKFLOW.md](../../WORKFLOW.md) - Complete workflows
+- [COMMANDS.md](../../COMMANDS.md) - All command documentation
+
+**What it shows:**
+- Pre-flight checklist
+- Command list
+- Workflow overview
+- Sacred Rules explanation
+- DNA.md philosophy
+- Self-maintenance system overview
+- Tips and best practices
+
+**Implementation:** Read and present key information from all documentation files.
+"""
+    }
+
+    # Write all command files
+    commands_dir = Path('.claude/commands')
+    for filename, content in commands.items():
+        filepath = commands_dir / filename
+        filepath.write_text(content, encoding='utf-8')
+        print(f"   [OK] Created {filename}")
+
+    print(f"\n   Total commands created: {len(commands)}")
 
 def create_mcp_config():
     """Create MCP configuration (optional)"""
