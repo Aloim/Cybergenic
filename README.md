@@ -1,5 +1,5 @@
 # Cybergenic
-Grow applications instead of coding them. This framework uses biological evolution principles to create self-healing, self-optimizing software that discovers its own architecture through runtime signals. This Tool Can be set up for Claudecode Projects to generate code or entire Applications.
+Grow applications instead of coding them. This framework uses biological evolution principles to create self-healing, self-optimizing software that discovers its own architecture through runtime signals. This tool is an Cybergenic Agentic Orchestration setup with various helper scripts that can be set up for Claudecode Projects to generate code or entire Applications.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
