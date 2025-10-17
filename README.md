@@ -352,7 +352,7 @@ Proteins can have these capabilities:
 ## Benefits
 
 ### For Developers
-- **70-80% cost reduction** vs manual AI coding (hierarchical model usage)
+- **Potential 70-80% cost reduction in future versions** vs manual AI coding (hierarchical model usage)
 - **No manual maintenance** - organisms self-heal
 - **Automatic optimization** - homeostasis handles resource management
 - **Security built-in** - immune system validates all code
