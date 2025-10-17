@@ -48,7 +48,7 @@ def create_directory_structure():
     print("[SETUP] Creating directory structure...")
     for directory in directories:
         Path(directory).mkdir(parents=True, exist_ok=True)
-        print(f"   ✓ Created {directory}/")
+        print(f"   [OK] Created {directory}/")
 
 def create_tracking_files():
     """Create initial tracking files"""
@@ -58,8 +58,8 @@ def create_tracking_files():
     # Counter files
     Path('.cybergenic/generation_counter.txt').write_text('0')
     Path('.cybergenic/run_counter.txt').write_text('0')
-    print("   ✓ Created generation_counter.txt")
-    print("   ✓ Created run_counter.txt")
+    print("   [OK] Created generation_counter.txt")
+    print("   [OK] Created run_counter.txt")
 
     # JSON tracking files
     tracking_files = {
@@ -101,7 +101,7 @@ def create_tracking_files():
     for filepath, content in tracking_files.items():
         with open(filepath, 'w') as f:
             json.dump(content, f, indent=2)
-        print(f"   ✓ Created {Path(filepath).name}")
+        print(f"   [OK] Created {Path(filepath).name}")
 
 def create_agent_definitions():
     """Create agent definition files with specialized synthesizers"""
@@ -187,14 +187,14 @@ CRITICAL: You use Claude Sonnet 4.5 because you need high-level reasoning to:
 
 IMPORTANT: When dispatching RNA work orders to synthesizers, route to the
 SPECIALIZED SYNTHESIZER based on the protein's capability type:
-- Transform → synthesizer_transform.md
-- Validate → synthesizer_validate.md
-- ManageState → synthesizer_manage_state.md
-- Coordinate → synthesizer_coordinate.md
-- Communicate → synthesizer_communicate.md
-- Monitor → synthesizer_monitor.md
-- Decide → synthesizer_decide.md
-- Adapt → synthesizer_adapt.md
+- Transform -> synthesizer_transform.md
+- Validate -> synthesizer_validate.md
+- ManageState -> synthesizer_manage_state.md
+- Coordinate -> synthesizer_coordinate.md
+- Communicate -> synthesizer_communicate.md
+- Monitor -> synthesizer_monitor.md
+- Decide -> synthesizer_decide.md
+- Adapt -> synthesizer_adapt.md
 
 Each specialized synthesizer is tuned for that specific type of protein.
 
@@ -213,7 +213,7 @@ SIGNAL DISCOVERY Phase:
 4. Prioritize orphan signals by frequency and severity
 5. Plan proteins for orphan handlers + apoptosis replacements
 
-TRANSCRIPTION Phase (DNA → RNA):
+TRANSCRIPTION Phase (DNA -> RNA):
 1. Read DNA.md in full (you have access to the nucleus)
 2. For the current generation goal, identify relevant Sacred Rules
 3. Determine what proteins need to be synthesized
@@ -614,7 +614,7 @@ Key principles for Transform proteins:
 - TYPE SAFETY: Clear input/output types
 
 Common patterns:
-- Data format conversion (JSON ↔ XML ↔ CSV)
+- Data format conversion (JSON <-> XML <-> CSV)
 - Coordinate transformations
 - Data normalization/denormalization
 - Filtering and mapping operations
@@ -1048,7 +1048,7 @@ class ProtocolAdapter:
     for filename, content in agents.items():
         filepath = Path('.claude/agents') / filename
         filepath.write_text(content)
-        print(f"   ✓ Created {filename}")
+        print(f"   [OK] Created {filename}")
 
     print(f"\n   Total agents created: {len(agents)}")
     print(f"   - 1 Architect (Sonnet 4.5)")
@@ -1076,7 +1076,7 @@ Initialize the complete Cybergenic Framework structure including:
 ## /cybergenrun
 Execute the growth process following the Central Dogma + Signal Discovery:
 - If first run (counter=0): Run Conception with Architect (DNA synthesis)
-- If subsequent run: Evolve next generation (Signal Discovery → DNA→RNA→Protein)
+- If subsequent run: Evolve next generation (Signal Discovery -> DNA->RNA->Protein)
 
 ## /cybergenstatus
 Show current generation, run count, DNA status, active proteins, and signal statistics
@@ -1090,7 +1090,7 @@ Show detailed self-maintenance systems status:
 
 ## /cybergenevolve N
 Evolve N generations (default: 1)
-Each generation follows: Signal Discovery → DNA→RNA→Protein→Validation→Integration→Tracking
+Each generation follows: Signal Discovery -> DNA->RNA->Protein->Validation->Integration->Tracking
 
 ## /cybergenrollback N
 Rollback to generation N using git + Claude checkpoints
@@ -1140,7 +1140,7 @@ Detailed signal discovery statistics:
 
     filepath = Path('.claude/commands/cybergen_commands.md')
     filepath.write_text(commands_content)
-    print(f"   ✓ Created cybergen_commands.md")
+    print(f"   [OK] Created cybergen_commands.md")
 
 def create_mcp_config():
     """Create MCP configuration (optional)"""
@@ -1167,7 +1167,7 @@ def create_mcp_config():
     filepath = Path('.claude/mcp.json')
     with open(filepath, 'w') as f:
         json.dump(mcp_config, f, indent=2)
-    print(f"   ✓ Created mcp.json")
+    print(f"   [OK] Created mcp.json")
     print("   Note: MCP servers will auto-install via npx when Claude Code starts")
 
 def create_gitignore():
@@ -1223,9 +1223,9 @@ Thumbs.db
     filepath = Path('.gitignore')
     if not filepath.exists():
         filepath.write_text(gitignore_content)
-        print("   ✓ Created .gitignore")
+        print("   [OK] Created .gitignore")
     else:
-        print("   ⚠ .gitignore already exists, skipping")
+        print("   [WARN] .gitignore already exists, skipping")
 
 def init_git_repo():
     """Initialize git repository"""
@@ -1233,7 +1233,7 @@ def init_git_repo():
     print("\n[SETUP] Initializing Git repository...")
 
     if Path('.git').exists():
-        print("   ⚠ Git repository already exists, skipping")
+        print("   [INFO] Git repository already exists, skipping")
         return
 
     try:
@@ -1241,11 +1241,11 @@ def init_git_repo():
         subprocess.run(['git', 'add', '.'], check=True, capture_output=True)
         subprocess.run(['git', 'commit', '-m', 'Initial Cybergenic Framework setup'],
                       check=True, capture_output=True)
-        print("   ✓ Git repository initialized")
+        print("   [OK] Git repository initialized")
     except subprocess.CalledProcessError as e:
-        print(f"   ⚠ Git initialization failed: {e}")
+        print(f"   [WARN] Git initialization failed: {e}")
     except FileNotFoundError:
-        print("   ⚠ Git not found, skipping repository initialization")
+        print("   [WARN] Git not found, skipping repository initialization")
 
 def create_seed_template():
     """Create a template requirements file in seed/"""
@@ -1286,9 +1286,9 @@ Any additional context, references, or considerations.
     filepath = Path('seed/requirements.md')
     if not filepath.exists():
         filepath.write_text(template)
-        print("   ✓ Created seed/requirements.md template")
+        print("   [OK] Created seed/requirements.md template")
     else:
-        print("   ⚠ seed/requirements.md already exists, skipping")
+        print("   [WARN] seed/requirements.md already exists, skipping")
 
 def check_dependencies():
     """Check if required dependencies are installed"""
@@ -1297,9 +1297,9 @@ def check_dependencies():
 
     # Check Python version
     if sys.version_info < (3, 8):
-        print("   ✗ Python 3.8+ required")
+        print("   [FAIL] Python 3.8+ required")
         return False
-    print(f"   ✓ Python {sys.version_info.major}.{sys.version_info.minor}")
+    print(f"   [OK] Python {sys.version_info.major}.{sys.version_info.minor}")
 
     # Check for required packages
     required_packages = ['psutil']
@@ -1308,10 +1308,10 @@ def check_dependencies():
     for package in required_packages:
         try:
             __import__(package)
-            print(f"   ✓ {package} installed")
+            print(f"   [OK] {package} installed")
         except ImportError:
             missing_packages.append(package)
-            print(f"   ✗ {package} not installed")
+            print(f"   [FAIL] {package} not installed")
 
     if missing_packages:
         print(f"\n   Install missing packages with:")
@@ -1331,41 +1331,41 @@ def print_summary():
 The Central Dogma + Signal-Driven Evolution is ready:
 
   Orphan Signals (unhandled events)
-    ↓ Detection & Analysis
+    | Detection & Analysis
   DNA.md (includes signal standards)
-    ↓ TRANSCRIPTION (by Sonnet Coordinator)
+    | TRANSCRIPTION (by Sonnet Coordinator)
   RNA work orders (includes orphan handlers)
-    ↓ TRANSLATION (by Haiku Synthesizer)
+    | TRANSLATION (by Haiku Synthesizer)
   Proteins (classes with mandatory signal broadcasting)
-    ↓ VALIDATION (by Haiku Chaperone)
+    | VALIDATION (by Haiku Chaperone)
   Functional modules (fully instrumented)
-    ↓ Runtime (all events emit signals)
+    | Runtime (all events emit signals)
   New Orphan Signals Detected
-    ↓ Cycle repeats - adaptive architecture emerges
+    | Cycle repeats - adaptive architecture emerges
 
 Agent Hierarchy (CORRECTED):
-  ✓ Architect (Sonnet 4.5/Opus 4) - Creates DNA.md [Gen 0 only]
-  ✓ Coordinator (Sonnet 4.5) - DNA→RNA, Integration [Every gen]
-  ✓ Synthesizer (Haiku 4) - RNA→Protein [Multiple per gen]
-  ✓ Chaperone (Haiku 4) - Validation [Multiple per gen]
+  [OK] Architect (Sonnet 4.5/Opus 4) - Creates DNA.md [Gen 0 only]
+  [OK] Coordinator (Sonnet 4.5) - DNA->RNA, Integration [Every gen]
+  [OK] Synthesizer (Haiku 4) - RNA->Protein [Multiple per gen]
+  [OK] Chaperone (Haiku 4) - Validation [Multiple per gen]
 
 Directory Structure:
-  ✓ .cybergenic/     - Framework data and tracking
-  ✓ .claude/         - Agent and command definitions
-  ✓ seed/            - Your project requirements
-  ✓ output/          - Generated code
+  [OK] .cybergenic/     - Framework data and tracking
+  [OK] .claude/         - Agent and command definitions
+  [OK] seed/            - Your project requirements
+  [OK] output/          - Generated code
 
 Self-Maintenance Systems:
-  ✓ Immune System    - Threat detection (immune_system.py)
-  ✓ Homeostasis      - Resource balancing (homeostasis.py)
-  ✓ Metabolism       - Cost tracking (metabolic_tracker.py)
-  ✓ Apoptosis        - Cell death (apoptosis.py)
-  ✓ Signal Bus       - Event coordination (signal_bus.py)
-  ✓ Orchestrator     - Python workflow manager (cybergen_orchestrator.py)
+  [OK] Immune System    - Threat detection (immune_system.py)
+  [OK] Homeostasis      - Resource balancing (homeostasis.py)
+  [OK] Metabolism       - Cost tracking (metabolic_tracker.py)
+  [OK] Apoptosis        - Cell death (apoptosis.py)
+  [OK] Signal Bus       - Event coordination (signal_bus.py)
+  [OK] Orchestrator     - Python workflow manager (cybergen_orchestrator.py)
 
 MCP Tools (Optional):
-  ✓ Configuration created at .claude/mcp.json
-  ✓ Servers will auto-install when Claude Code starts
+  [OK] Configuration created at .claude/mcp.json
+  [OK] Servers will auto-install when Claude Code starts
 
 Next Steps:
   1. Edit seed/requirements.md with your project description
@@ -1396,10 +1396,10 @@ def main():
     """Main setup function"""
 
     print("""
-╔════════════════════════════════════════════════════════════════╗
-║         CYBERGENIC FRAMEWORK SETUP                             ║
-║  "Don't write code. Grow self-maintaining organisms"          ║
-╚════════════════════════════════════════════════════════════════╝
+================================================================
+         CYBERGENIC FRAMEWORK SETUP
+  "Don't write code. Grow self-maintaining organisms"
+================================================================
 """)
 
     # Check dependencies first
