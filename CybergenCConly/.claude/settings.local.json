@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-remote https://github.com/Aloim/Cybergenic.git)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
