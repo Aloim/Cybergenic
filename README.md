@@ -2,6 +2,73 @@
 Grow applications instead of coding them. This framework uses biological evolution principles to create self-healing, self-optimizing software that discovers its own architecture through runtime signals. This tool is an Cybergenic Agentic Orchestration setup with various helper scripts that can be set up for Claudecode Projects to generate code or entire Applications.
 
 
+---
+
+## IMPORTANT NOTICE
+
+**This project is currently Work In Progress (WIP).**
+
+Agentic workflows and autonomous code generation are **not yet as reliable as they should be**. Expect:
+- Incomplete generations
+- Occasional failures in protein synthesis
+- Self-maintenance systems still being refined
+- Bugs and unexpected behavior
+
+**Use at your own risk. This is experimental software.**
+
+---
+
+## Installation & Version Information
+
+### Two Versions Available
+
+#### 1. ClaudeCode Version (Recommended - Stable)
+
+**Status**: Working - Ready to use
+
+**Requirements**:
+- Claude Max subscription (required for Claude Code access)
+- Python 3.8 or higher
+- Git
+
+**Installation**:
+1. Download or clone this repository
+2. Copy **all contents** (including `.claude/` and `.cybergenic/` folders) to your project root directory
+3. Your project structure should look like:
+```
+   your-project/
+   ├── .claude/
+   ├── .cybergenic/
+   ├── seed/
+   ├── output/
+   └── [your other project files]
+```
+4. Run `/cybergensetup` in Claude Code to initialize
+
+#### 2. Local LLM Version (Experimental)
+
+**Status**: Work In Progress - DO NOT USE YET
+
+This version is designed for better control using local LLMs (Ollama, LM Studio, etc.) but is currently incomplete and non-functional.
+
+**Planned features**:
+- Local model control and fine-tuning
+- No subscription requirements
+- Full privacy and offline operation
+- Custom model selection
+
+**Current status**: Under active development. Not ready for testing.
+
+---
+
+### Which Version Should I Use?
+
+- **Want to try it now?** → Use the **ClaudeCode version**
+- **Want local control?** → Wait for the Local LLM version (coming soon)
+- **Production use?** → Neither. Wait for v7.0.0 stable release.
+
+---
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Cybergenic Framework
