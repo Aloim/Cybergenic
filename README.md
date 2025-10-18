@@ -71,6 +71,11 @@ Cybergenic Framework
 
 ## Overview
 
+<img width="833" height="1966" alt="cybergenic_evolution_cycle" src="https://github.com/user-attachments/assets/1643ce83-bc50-4abb-a79c-b25254e8d50b" /><img width="2450" height="2760" alt="cybergenic_complete_workflow" src="https://github.com/user-attachments/assets/4c9975b4-cb96-4471-ae3b-e5b5a709670b" />
+<img width="1947" height="1553" alt="cybergenic_protein_analogy" src="https://github.com/user-attachments/assets/0e7908ea-bca5-4069-8e74-cec6b0be2cbc" />
+
+
+
 The **Cybergenic Framework** is a revolutionary software development paradigm where applications literally "grow" from a seed specification through controlled evolutionary processes, mimicking biological development from embryo to mature organism with **self-healing, self-optimizing capabilities**.
 
 **Core Principle:** "Don't write code. Grow self-maintaining organisms through signal-driven evolution."
