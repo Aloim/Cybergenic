@@ -16,6 +16,8 @@ Agentic workflows and autonomous code generation are **not yet as reliable as th
 
 **Use at your own risk. This is experimental software.**
 
+What helps is during the 1st Generation run (or generally immediately after you start the generation) prompt them something like this as reminder "Use the proper cybergenic workflow using multiple Haiku agents, Split the Tasks down with Sonnet for those. Make Sure to Send Signals After each task"
+
 ---
 
 ## Installation & Version Information
